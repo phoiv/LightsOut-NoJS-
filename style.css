@@ -1,0 +1,362 @@
+
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.content{
+    width: 500px;
+    height: 500px;
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+input {
+    margin: 0;
+    appearance: none;
+    flex: 0 0 33%;
+    background-color: green;
+    border: 8px solid black;
+}
+
+/*input:checked{*/
+/*    background-color: red;*/
+/*}*/
+
+/*WIN CONDITION*/
+
+
+/*.content:has(input:nth-child(1):checked):has(input:nth-child(2):checked):has(input:nth-child(3):checked) input{*/
+
+/*    animation: win 1s infinite;*/
+
+/*  }*/
+
+/*===================================================================*/
+/*BOX 1*/
+/*===================================================================*/
+
+
+.content:has(input:nth-child(1):checked,input:nth-child(2):checked,input:nth-child(4):checked) input:nth-child(1) {
+    background-color: red;
+}
+
+.content:has(input:nth-child(1):checked):has(input:nth-child(2):checked):not(:has(input:nth-child(4):checked)) input:nth-child(1),
+.content:has(input:nth-child(1):checked):has(input:nth-child(4):checked):not(:has(input:nth-child(2):checked)) input:nth-child(1),
+.content:has(input:nth-child(2):checked):has(input:nth-child(4):checked):not(:has(input:nth-child(1):checked)) input:nth-child(1)
+{
+    background-color: green;
+}
+
+/*===================================================================*/
+/*BOX 2*/
+/*===================================================================*/
+
+/*1 of 4 neighbours
+
+*/
+.content:has(input:nth-child(1):checked,input:nth-child(2):checked,input:nth-child(3):checked,input:nth-child(5):checked) input:nth-child(2) {
+    background-color: red;
+}
+
+/**
+2 of 4 neighbours
+(4 2) = 6 combinations
+*/
+.content:has(input:nth-child(1):checked):has(input:nth-child(2):checked) input:nth-child(2),
+.content:has(input:nth-child(1):checked):has(input:nth-child(3):checked) input:nth-child(2),
+.content:has(input:nth-child(1):checked):has(input:nth-child(5):checked) input:nth-child(2),
+.content:has(input:nth-child(2):checked):has(input:nth-child(3):checked) input:nth-child(2),
+.content:has(input:nth-child(2):checked):has(input:nth-child(5):checked) input:nth-child(2),
+.content:has(input:nth-child(3):checked):has(input:nth-child(5):checked) input:nth-child(2)
+{
+    background-color: green;
+}
+
+/**
+3 of 4 neighbours
+(4 3) = 4 combinations
+*/
+.content:has(input:nth-child(1):checked):has(input:nth-child(2):checked):has(input:nth-child(3):checked) input:nth-child(2),
+.content:has(input:nth-child(1):checked):has(input:nth-child(2):checked):has(input:nth-child(5):checked) input:nth-child(2),
+.content:has(input:nth-child(1):checked):has(input:nth-child(3):checked):has(input:nth-child(5):checked) input:nth-child(2),
+.content:has(input:nth-child(2):checked):has(input:nth-child(3):checked):has(input:nth-child(5):checked) input:nth-child(2)
+{
+    background-color: red;
+}
+
+/**
+4 of 4 neighbours
+(4 4) = 1 combinations
+*/
+.content:has(input:nth-child(1):checked):has(input:nth-child(2):checked):has(input:nth-child(3):checked):has(input:nth-child(5):checked) input:nth-child(2)
+{
+    background-color: green;
+}
+
+ /*===================================================================*/
+                               /*BOX 3*/
+/*===================================================================*/
+/*NEIGHBOURS = 2 3 6*/
+.content:has(input:nth-child(2):checked,input:nth-child(3):checked,input:nth-child(6):checked) input:nth-child(3) {
+    background-color: red;
+}
+
+.content:has(input:nth-child(2):checked):has(input:nth-child(3):checked):not(:has(input:nth-child(6):checked)) input:nth-child(3),
+.content:has(input:nth-child(2):checked):has(input:nth-child(6):checked):not(:has(input:nth-child(3):checked)) input:nth-child(3),
+.content:has(input:nth-child(3):checked):has(input:nth-child(6):checked):not(:has(input:nth-child(2):checked)) input:nth-child(3)
+{
+    background-color: green;
+}
+
+/*===================================================================*/
+/*BOX 4*/
+/*===================================================================*/
+
+/*NEIGHBOURS = 1 4 5 7*/
+
+/*1 of 4 neighbours
+
+*/
+.content:has(input:nth-child(1):checked,input:nth-child(4):checked,input:nth-child(5):checked,input:nth-child(7):checked) input:nth-child(4) {
+    background-color: red;
+}
+
+/**
+2 of 4 neighbours
+(4 2) = 6 combinations
+*/
+.content:has(input:nth-child(1):checked):has(input:nth-child(4):checked) input:nth-child(4),
+.content:has(input:nth-child(1):checked):has(input:nth-child(5):checked) input:nth-child(4),
+.content:has(input:nth-child(1):checked):has(input:nth-child(7):checked) input:nth-child(4),
+.content:has(input:nth-child(4):checked):has(input:nth-child(5):checked) input:nth-child(4),
+.content:has(input:nth-child(4):checked):has(input:nth-child(7):checked) input:nth-child(4),
+.content:has(input:nth-child(5):checked):has(input:nth-child(7):checked) input:nth-child(4)
+{
+    background-color: green;
+}
+
+/**
+3 of 4 neighbours
+(4 3) = 4 combinations
+*/
+.content:has(input:nth-child(1):checked):has(input:nth-child(4):checked):has(input:nth-child(5):checked) input:nth-child(4),
+.content:has(input:nth-child(1):checked):has(input:nth-child(4):checked):has(input:nth-child(7):checked) input:nth-child(4),
+.content:has(input:nth-child(1):checked):has(input:nth-child(5):checked):has(input:nth-child(7):checked) input:nth-child(4),
+.content:has(input:nth-child(4):checked):has(input:nth-child(5):checked):has(input:nth-child(7):checked) input:nth-child(4)
+{
+    background-color: red;
+}
+
+/**
+4 of 4 neighbours
+(4 4) = 1 combinations
+*/
+.content:has(input:nth-child(1):checked):has(input:nth-child(4):checked):has(input:nth-child(5):checked):has(input:nth-child(7):checked) input:nth-child(4)
+{
+    background-color: green;
+}
+
+
+/*===================================================================*/
+/*BOX 5*/
+/*===================================================================*/
+
+/*NEIGHBOURS = 3 5 6 9*/
+
+/*1 of 5 neighbours*/
+.content:has(input:nth-child(2):checked,input:nth-child(4):checked,input:nth-child(5):checked,input:nth-child(6):checked,input:nth-child(8):checked) input:nth-child(5) {
+    background-color: red;
+}
+
+
+/*2 of 5 neighbours  = 10 */
+.content:has(input:nth-child(2):checked):has(input:nth-child(4):checked) input:nth-child(5),
+.content:has(input:nth-child(2):checked):has(input:nth-child(5):checked) input:nth-child(5),
+.content:has(input:nth-child(2):checked):has(input:nth-child(6):checked) input:nth-child(5),
+.content:has(input:nth-child(2):checked):has(input:nth-child(8):checked) input:nth-child(5),
+.content:has(input:nth-child(4):checked):has(input:nth-child(5):checked) input:nth-child(5),
+.content:has(input:nth-child(4):checked):has(input:nth-child(6):checked) input:nth-child(5),
+.content:has(input:nth-child(4):checked):has(input:nth-child(8):checked) input:nth-child(5),
+.content:has(input:nth-child(5):checked):has(input:nth-child(6):checked) input:nth-child(5),
+.content:has(input:nth-child(5):checked):has(input:nth-child(8):checked) input:nth-child(5),
+.content:has(input:nth-child(6):checked):has(input:nth-child(8):checked) input:nth-child(5)
+{
+    background-color: green;
+}
+
+/**
+3 of 5 neighbours
+(5 3) = 10 combinations
+*/
+.content:has(input:nth-child(2):checked):has(input:nth-child(4):checked):has(input:nth-child(5):checked) input:nth-child(5),
+.content:has(input:nth-child(2):checked):has(input:nth-child(4):checked):has(input:nth-child(6):checked) input:nth-child(5),
+.content:has(input:nth-child(2):checked):has(input:nth-child(4):checked):has(input:nth-child(8):checked) input:nth-child(5),
+.content:has(input:nth-child(2):checked):has(input:nth-child(5):checked):has(input:nth-child(6):checked) input:nth-child(5),
+.content:has(input:nth-child(2):checked):has(input:nth-child(5):checked):has(input:nth-child(8):checked) input:nth-child(5),
+.content:has(input:nth-child(2):checked):has(input:nth-child(6):checked):has(input:nth-child(8):checked) input:nth-child(5),
+.content:has(input:nth-child(4):checked):has(input:nth-child(5):checked):has(input:nth-child(6):checked) input:nth-child(5),
+.content:has(input:nth-child(4):checked):has(input:nth-child(5):checked):has(input:nth-child(8):checked) input:nth-child(5),
+.content:has(input:nth-child(4):checked):has(input:nth-child(6):checked):has(input:nth-child(8):checked) input:nth-child(5),
+.content:has(input:nth-child(5):checked):has(input:nth-child(6):checked):has(input:nth-child(8):checked) input:nth-child(5)
+
+{
+    background-color: red;
+}
+
+/**
+4 of 5 neighbours
+(5 4) = 5 combinations
+*/
+.content:has(input:nth-child(2):checked):has(input:nth-child(4):checked):has(input:nth-child(5):checked):has(input:nth-child(6):checked) input:nth-child(5),
+.content:has(input:nth-child(2):checked):has(input:nth-child(4):checked):has(input:nth-child(5):checked):has(input:nth-child(8):checked) input:nth-child(5),
+.content:has(input:nth-child(2):checked):has(input:nth-child(4):checked):has(input:nth-child(6):checked):has(input:nth-child(8):checked) input:nth-child(5),
+.content:has(input:nth-child(2):checked):has(input:nth-child(5):checked):has(input:nth-child(6):checked):has(input:nth-child(8):checked) input:nth-child(5),
+.content:has(input:nth-child(4):checked):has(input:nth-child(5):checked):has(input:nth-child(6):checked):has(input:nth-child(8):checked) input:nth-child(5)
+{
+    background-color: green;
+}
+
+/**
+5 of 5 neighbours
+(5 5) = 1 combinations
+*/
+.content:has(input:nth-child(2):checked):has(input:nth-child(4):checked):has(input:nth-child(5):checked):has(input:nth-child(6):checked):has(input:nth-child(8):checked) input:nth-child(5)
+{
+    background-color: red;
+}
+
+
+/*===================================================================*/
+/*BOX 6*/
+/*===================================================================*/
+
+/*NEIGHBOURS = 3 5 6 9*/
+
+/*1 of 4 neighbours
+
+*/
+.content:has(input:nth-child(3):checked,input:nth-child(5):checked,input:nth-child(6):checked,input:nth-child(9):checked) input:nth-child(6) {
+    background-color: red;
+}
+
+/**
+2 of 4 neighbours
+(4 2) = 6 combinations
+*/
+.content:has(input:nth-child(3):checked):has(input:nth-child(5):checked) input:nth-child(6),
+.content:has(input:nth-child(3):checked):has(input:nth-child(6):checked) input:nth-child(6),
+.content:has(input:nth-child(3):checked):has(input:nth-child(9):checked) input:nth-child(6),
+.content:has(input:nth-child(5):checked):has(input:nth-child(6):checked) input:nth-child(6),
+.content:has(input:nth-child(5):checked):has(input:nth-child(9):checked) input:nth-child(6),
+.content:has(input:nth-child(6):checked):has(input:nth-child(9):checked) input:nth-child(6)
+{
+    background-color: green;
+}
+
+/**
+3 of 4 neighbours
+(4 3) = 4 combinations
+*/
+.content:has(input:nth-child(3):checked):has(input:nth-child(5):checked):has(input:nth-child(6):checked) input:nth-child(6),
+.content:has(input:nth-child(3):checked):has(input:nth-child(5):checked):has(input:nth-child(9):checked) input:nth-child(6),
+.content:has(input:nth-child(3):checked):has(input:nth-child(6):checked):has(input:nth-child(9):checked) input:nth-child(6),
+.content:has(input:nth-child(5):checked):has(input:nth-child(6):checked):has(input:nth-child(9):checked) input:nth-child(6)
+{
+    background-color: red;
+}
+
+/**
+4 of 4 neighbours
+(4 4) = 1 combinations
+*/
+.content:has(input:nth-child(3):checked):has(input:nth-child(5):checked):has(input:nth-child(6):checked):has(input:nth-child(9):checked) input:nth-child(6)
+{
+    background-color: green;
+}
+
+
+
+
+/*===================================================================*/
+/*BOX 7*/
+/*===================================================================*/
+/*NEIGHBOURS = 4 7 8*/
+.content:has(input:nth-child(4):checked,input:nth-child(7):checked,input:nth-child(8):checked) input:nth-child(7) {
+    background-color: red;
+}
+
+.content:has(input:nth-child(4):checked):has(input:nth-child(7):checked):not(:has(input:nth-child(8):checked)) input:nth-child(7),
+.content:has(input:nth-child(8):checked):has(input:nth-child(4):checked):not(:has(input:nth-child(7):checked)) input:nth-child(7),
+.content:has(input:nth-child(7):checked):has(input:nth-child(8):checked):not(:has(input:nth-child(4):checked)) input:nth-child(7)
+{
+    background-color: green;
+}
+
+
+/*===================================================================*/
+/*BOX 8*/
+/*===================================================================*/
+
+/*NEIGHBOURS = 5 7 8 9*/
+
+/*1 of 4 neighbours
+
+*/
+.content:has(input:nth-child(5):checked,input:nth-child(7):checked,input:nth-child(8):checked,input:nth-child(9):checked) input:nth-child(8) {
+    background-color: red;
+}
+
+/**
+2 of 4 neighbours
+(4 2) = 6 combinations
+*/
+.content:has(input:nth-child(5):checked):has(input:nth-child(7):checked) input:nth-child(8),
+.content:has(input:nth-child(5):checked):has(input:nth-child(8):checked) input:nth-child(8),
+.content:has(input:nth-child(5):checked):has(input:nth-child(9):checked) input:nth-child(8),
+.content:has(input:nth-child(7):checked):has(input:nth-child(8):checked) input:nth-child(8),
+.content:has(input:nth-child(7):checked):has(input:nth-child(9):checked) input:nth-child(8),
+.content:has(input:nth-child(8):checked):has(input:nth-child(9):checked) input:nth-child(8)
+{
+    background-color: green;
+}
+
+/**
+3 of 4 neighbours
+(4 3) = 4 combinations
+*/
+.content:has(input:nth-child(5):checked):has(input:nth-child(7):checked):has(input:nth-child(8):checked) input:nth-child(8),
+.content:has(input:nth-child(5):checked):has(input:nth-child(7):checked):has(input:nth-child(9):checked) input:nth-child(8),
+.content:has(input:nth-child(5):checked):has(input:nth-child(8):checked):has(input:nth-child(9):checked) input:nth-child(8),
+.content:has(input:nth-child(7):checked):has(input:nth-child(8):checked):has(input:nth-child(9):checked) input:nth-child(8)
+{
+    background-color: red;
+}
+
+/**
+4 of 4 neighbours
+(4 4) = 1 combinations
+*/
+.content:has(input:nth-child(5):checked):has(input:nth-child(7):checked):has(input:nth-child(8):checked):has(input:nth-child(9):checked) input:nth-child(8)
+{
+    background-color: green;
+}
+
+/*===================================================================*/
+/*BOX 9*/
+/*===================================================================*/
+/*NEIGHBOURS = 6 8 9*/
+.content:has(input:nth-child(6):checked,input:nth-child(8):checked,input:nth-child(9):checked) input:nth-child(9) {
+    background-color: red;
+}
+
+.content:has(input:nth-child(6):checked):has(input:nth-child(8):checked):not(:has(input:nth-child(9):checked)) input:nth-child(9),
+.content:has(input:nth-child(9):checked):has(input:nth-child(6):checked):not(:has(input:nth-child(8):checked)) input:nth-child(9),
+.content:has(input:nth-child(9):checked):has(input:nth-child(8):checked):not(:has(input:nth-child(6):checked)) input:nth-child(9)
+{
+    background-color: green;
+}
